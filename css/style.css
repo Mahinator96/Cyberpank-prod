@@ -6,35 +6,43 @@
 */
 
 @font-face {
-  font-family: "Archangelsk";
-  font-style: normal;
-  font-weight: 400;
+  font-family: Cormorant;
   font-display: swap;
-  src: local("Archangelsk"), url("../fonts/Archangelsk.woff2") format("woff2"), url("../fonts/Archangelsk.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Roboto";
-  font-style: normal;
+  src: url("../fonts/Cormorant-Bold.woff2") format("woff2"), url("../fonts/Cormorant-Bold.woff") format("woff");
   font-weight: 700;
-  font-display: swap;
-  src: local("Roboto"), url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff");
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
-  font-style: normal;
+  font-family: Archangelsk;
+  font-display: swap;
+  src: url("../fonts/Archangelsk.woff2") format("woff2"), url("../fonts/Archangelsk.woff") format("woff");
   font-weight: 400;
-  font-display: swap;
-  src: local("Roboto"), url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff");
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 300;
+  font-family: Roboto;
   font-display: swap;
-  src: local("Roboto"), url("../fonts/Roboto-Light.woff2") format("woff2"), url("../fonts/Roboto-Light.woff") format("woff");
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-display: swap;
+  src: url("../fonts/Roboto-Light.woff2") format("woff2"), url("../fonts/Roboto-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-display: swap;
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
 }
 
 html {
@@ -109,27 +117,22 @@ ol {
   margin: 0;
 }
 
-/* // Счётчик для ul, ol
-
-// .list-counter
 .list-counter {
-	list-style-type: none;
-	counter-reset: item;
+  list-style-type: none;
+  counter-reset: item;
+}
 
-	// .list-counter li
-	li {
-		position: relative;
+.list-counter li {
+  position: relative;
+}
 
-		//.list-counter li::before
-		&::before {
-			position: absolute;
-			top: 0;
-			left: 0;
-			counter-increment: item;
-			content: counter(item);
-		}
-	}
-} */
+.list-counter li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  counter-increment: item;
+  content: counter(item);
+}
 
 img {
   -o-object-fit: cover;
@@ -203,7 +206,7 @@ section {
 }
 
 .section__title {
-  font-family: Archangelsk;
+  font-family: Cormorant, sans-serif;
   font-size: calc(30px + 32 * ((100vw - 320px) / 1600));
   font-weight: 400;
   margin-bottom: 25px;
@@ -212,11 +215,16 @@ section {
 .button {
   padding: 1.1875rem 3.125rem;
   font-weight: 700;
+  transition: 0.3s ease;
 }
 
 .button--yellow {
   color: #000;
   background-color: #F8F200;
+}
+
+.button--yellow:hover {
+  background-color: #c6c31f;
 }
 
 .button--black {
@@ -663,7 +671,7 @@ section {
 }
 
 .info-hero__text {
-  font-family: Archangelsk;
+  font-family: Archangelsk, sans-serif;
   font-size: calc(30px + 32 * ((100vw - 320px) / 1600));
   max-width: 7.8645em;
 }
@@ -685,6 +693,11 @@ section {
 
 .header.hide {
   transform: translateY(-100%);
+}
+
+.header nav {
+  display: flex;
+  justify-content: end;
 }
 
 .header__container {
@@ -967,6 +980,7 @@ section {
   position: relative;
   right: 7.5rem;
   right: calc(-60px + -60 * ((100vw - 1024px) / (1600 - 1024 + 320)));
+  z-index: 2;
 }
 
 .win__img--ps {
@@ -1333,6 +1347,10 @@ section {
 
   .info-hero__text {
     max-width: none;
+  }
+
+  .header nav {
+    justify-content: center;
   }
 
   .header__container {
